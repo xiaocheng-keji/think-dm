@@ -1,0 +1,30 @@
+{
+    "name": "xiaocheng-keji/think-dm",
+    "description": "thinkphp5.1 达梦8数据库驱动",
+    "license": "Apache-2.0",
+    "type": "library",
+    "authors": [
+        {
+            "name": "xiaocheng_keji",
+            "email": "smartforus@foxmail.com"
+        }
+    ],
+    "require": {
+        "topthink/framework": "5.1.*",
+        "ext-pdo": "*"
+    },
+    "autoload": {
+        "classmap": [
+            {
+                "think\\db\\builder\\Dm": "src/builder/Dm.php",
+                "think\\db\\connector\\Dm": "src/connector/Dm.php"
+            }
+        ]
+    },
+    "config": {
+        "allow-plugins": {
+            "topthink/think-installer": false
+        }
+    },
+    "minimum-stability": "dev"
+}
