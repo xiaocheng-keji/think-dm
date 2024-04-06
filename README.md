@@ -1,9 +1,9 @@
-ThinkPHP 5.1 达梦8数据库驱动
+ThinkPHP 5.0 达梦数据库驱动
 ===============
 ---
 [ThinkPHP 5.0 版](https://gitee.com/xiaocheng_keji/think-dm/tree/1.x) 对应 1.x 分支  
 [ThinkPHP 5.1 版](https://gitee.com/xiaocheng_keji/think-dm/tree/2.x) 对应 2.x 分支  
-[ThinkPHP 6.0 版](https://gitee.com/xiaocheng_keji/think-dm/tree/3.x) 对应 3.x 分支  
+[ThinkPHP 6.0 版](https://gitee.com/xiaocheng_keji/think-dm/tree/3.x) 对应 3.x 分支
 ---
 原来为 [71CMS创先云党建](https://gitee.com/xiaocheng_keji/71cms)  从 MySQL 移植到 DM 写的，现在开源出来，供大家学习交流。
 

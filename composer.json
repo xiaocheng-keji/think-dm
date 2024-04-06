@@ -1,6 +1,6 @@
 {
     "name": "xiaocheng-keji/think-dm",
-    "description": "thinkphp5.1 达梦8数据库驱动",
+    "description": "thinkphp5.0 达梦8数据库驱动",
     "license": "Apache-2.0",
     "type": "library",
     "authors": [
@@ -10,7 +10,7 @@
         }
     ],
     "require": {
-        "topthink/framework": "5.1.*",
+        "topthink/framework": "5.0.*",
         "ext-pdo": "*"
     },
     "autoload": {

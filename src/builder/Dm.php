@@ -19,62 +19,28 @@ use think\db\Query;
 class Dm extends Builder
 {
     /**
-     * order分析
-     * @access protected
-     * @param  Query     $query        查询对象
-     * @param  mixed     $order
-     * @return string
-     */
-    protected function parseOrder(Query $query, $order)
-    {
-        foreach ($order as $key => $val) {
-            if ($val instanceof Expression) {
-                $array[] = $val->getValue();
-            } elseif (is_array($val) && preg_match('/^[\w\.]+$/', $key)) {
-                $array[] = $this->parseOrderField($query, $key, $val);
-            } elseif ('[rand]' == $val) {
-                $array[] = $this->parseRand($query);
-            } elseif (is_string($val)) {
-                if (is_numeric($key)) {
-                    list($key, $sort) = explode(' ', strpos($val, ' ') ? $val : $val . ' ');
-                } else {
-                    $sort = $val;
-                }
-
-                $sort    = strtoupper($sort);
-                $sort    = in_array($sort, ['ASC', 'DESC'], true) ? ' ' . $sort : '';
-                $array[] = $this->parseKey($query, $key, true) . $sort;
-            }
-        }
-
-        return empty($array) ? '' : ' ORDER BY ' . implode(',', $array);
-    }
-
-    /**
      * 字段和表名处理
-     * @access public
-     * @param  Query      $query        查询对象
-     * @param  string     $key
-     * @param  string     $strict
+     * @access protected
+     * @param mixed  $key
+     * @param array  $options
      * @return string
      */
-    public function parseKey(Query $query, $key, $strict = false)
+    protected function parseKey($key, $options = [], $strict = false)
     {
         if (is_numeric($key)) {
             return $key;
         } elseif ($key instanceof Expression) {
             return $key->getValue();
         }
-
         $key = trim($key);
 
         if (strpos($key, '.')) {
             list($table, $key) = explode('.', $key, 2);
 
-            $alias = $query->getOptions('alias');
+            $alias = $this->query->getOptions('alias');
 
             if ('__TABLE__' == $table) {
-                $table = $query->getOptions('table');
+                $table = $this->query->getOptions('table');
                 $table = is_array($table) ? array_shift($table) : $table;
             }
 
