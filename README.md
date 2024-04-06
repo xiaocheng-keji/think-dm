@@ -22,6 +22,11 @@ dm.ini 配置：
 COMPATIBLE_MODE=4
 ~~~
 
+安装扩展包
+~~~
+composer require xiaocheng-keji/think-dm:2.x-dev
+~~~
+
 然后，配置应用的数据库配置：
 
 ~~~
